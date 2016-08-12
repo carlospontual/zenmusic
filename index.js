@@ -115,6 +115,10 @@ slack.on(RTM_EVENTS.MESSAGE, (message) => {
     userName = (user != null ? user.name : void 0) != null ? "@" + user.name : "UNKNOWN_USER";
     console.log("Received: " + type + " " + channelName + " " + userName + " " + ts + " \"" + text + "\"");
     if (type === 'message' && (text != null) && (channel != null)) {
+        if (user == '@ernest') {
+            slack.sendMessage("Nice try ernest, you're banned :)");
+            return false;
+        }
         input = text.split(' ');
         var term = input[0].toLowerCase();
 
